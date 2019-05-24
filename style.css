@@ -1,0 +1,82 @@
+body {
+  background-color: rgb(240, 98, 97);
+  margin: 30px;
+}
+
+.app {}
+
+.app-header {
+  /* header */
+  width: 100%;
+  height: 110px;
+  display: flex;
+  align-items: center;
+}
+
+.app-header-icon {
+  cursor: pointer;
+  font-weight: bold;
+  position: absolute;
+  left: 10px;
+}
+
+.app-header-text {
+  font-weight: bold;
+  font-size: 24px;
+  position: absolute;
+  left: 45%;
+}
+
+.display-none {
+  display: none;
+}
+
+#question {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+
+#category {
+  font-size: 20px;
+  color: black;
+  text-align: center;
+}
+
+button {
+  background-color: #e7e7e7;
+  color: black;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 140px;
+  height: 50px;
+  position: relative;
+}
+
+p {
+  align-items: center;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.score {
+  position: absolute;
+  height: 400px;
+  width: 600px;
+  bottom: 40px;
+  background-color: white;
+  z-index: 3;
+}
+
+.scorenumber {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  font-size: 40px;
+}
