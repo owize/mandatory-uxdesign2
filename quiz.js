@@ -2,30 +2,19 @@
 let number = 0;
 let startBtn = document.querySelector(".app-container-startbutton");
 
-const NUMBER_OF_QUESTIONS = 5;
-
-startBtn.addEventListener("click", fetchQuestions);
-
-
-function fetchQuestions() {
+startBtn.addEventListener("click", function() {
 
 startBtn.classList.add ("display-none");
 
-
+ 
 
 var request = new XMLHttpRequest();
 
 // Open a new connection, using the GET request on the URL endpoint
-request.open('GET', `https://opentdb.com/api.php?amount=${NUMBER_OF_QUESTIONS}&category=15&type=boolean`);
+request.open('GET', 'https://opentdb.com/api.php?amount=5&category=15&type=boolean');
 
 
 request.onload = function () {
-
-  const questions = document.body.querySelectorAll(".question-container");
-
-  for (let i = 0; i < questions.length; i++) {
-    questions[i].remove();
-  }
   // Begin accessing JSON data here
 var data = JSON.parse(this.responseText).results;
 console.log(data);
@@ -45,11 +34,7 @@ header.appendChild(count);
 
 data.forEach(obj => {
 
-  let body = document.body;
-
-
-
-
+  let body = document.getElementsByTagName("body")[0];
 
   let question = document.createElement("p");
   question.id ="question";
@@ -120,15 +105,12 @@ data.forEach(obj => {
 
 
 
-  const questionContainer = document.createElement("div");
-  questionContainer.classList.add("question-container");
+  body.appendChild(category);
+  body.appendChild(question);
+  body.appendChild(trueButton);
+  body.appendChild(falseButton);
 
-  questionContainer.appendChild(category);
-  questionContainer.appendChild(question);
-  questionContainer.appendChild(trueButton);
-  questionContainer.appendChild(falseButton);
 
-  body.appendChild(questionContainer);
 
 
   question.innerHTML = obj.question;
@@ -138,7 +120,7 @@ data.forEach(obj => {
 }
 
 request.send();
-}
+});
 
 
 
@@ -150,8 +132,7 @@ submitBtn.addEventListener("click", () =>{
 
     scoreBox.classList.remove("display-none");
 
-    scorenumber.textContent = `${number}/${NUMBER_OF_QUESTIONS}`;
-
+    scorenumber.textContent = number + "/5";
 
 
 });
